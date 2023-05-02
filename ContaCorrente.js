@@ -1,11 +1,13 @@
 import {Cliente} from './Cliente.js'
 
 export class ContaCorrente {
-    agencia;
-    
-    _cliente;
-    // #saldo = 0;
-    _saldo = 0;
+    static numeroDeConstas = 0;
+    constructor(agencia, cliente) {
+        this.agencia = agencia;
+        this.cliente = cliente;
+        this._saldo = 0;
+        ContaCorrente.numeroDeConstas++;
+    }
 
     sacar(valor) {
         if (this._saldo >= valor) {
